@@ -1,5 +1,5 @@
 
-#inserts data from staging to production
+-- inserts data from staging to production
 DROP PROCEDURE IF EXISTS icarus.insertPrdData;
 DELIMITER $$
 CREATE PROCEDURE icarus.insertPrdData()
@@ -40,7 +40,7 @@ flights_stg;
 DELIMITER ;
 
 
-#deletes data from staging
+-- deletes data from staging
 DROP PROCEDURE IF EXISTS icarus.deleteStgData;
 DELIMITER $$
 CREATE PROCEDURE deleteStgData()
