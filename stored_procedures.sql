@@ -49,7 +49,7 @@ BEGIN
 END$$
 DELIMITER ;
 
-CALL deleteStgData();
-CALL insertPrdData();
-SELECT COUNT(*) from flights_prd;
-SELECT * from errors;
+-- CALL deleteStgData();
+-- CALL insertPrdData();
+-- SELECT COUNT(*) from flights_prd;
+-- SELECT * from errors;
