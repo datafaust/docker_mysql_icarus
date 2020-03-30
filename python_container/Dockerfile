@@ -18,7 +18,7 @@ WORKDIR /usr/src/app
 
 RUN \
   apt-get update && \
-  apt-get install -y build-essential -y  python3.6 libmysqlclient-dev curl&& \
+  apt-get install -y build-essential -y  python3.6 python-pip libmysqlclient-dev curl&& \
   rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt ./
