@@ -16,6 +16,7 @@ WORKDIR /usr/src/app
 
 RUN \
   apt-get update && \
+  apt-get install build-essential \
   apt-get install -y python python-dev python-pip python-virtualenv libmysqlclient-dev curl&& \
   rm -rf /var/lib/apt/lists/*
 
