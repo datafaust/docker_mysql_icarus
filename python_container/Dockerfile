@@ -21,6 +21,7 @@ RUN \
 
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
+COPY . .
 
 # Install cron
 RUN apt-get update
@@ -30,10 +31,8 @@ RUN apt-get install cron
 ADD crontab /etc/cron.d/simple-cron
 
 # Add shell script and grant execution rights
-ADD loading_data.py
 ADD script.sh /script.sh
 RUN chmod +x /script.sh
-RUN chmod +x loading_data.py
 
 # Give execution rights on the cron job
 RUN chmod 0644 /etc/cron.d/simple-cron
