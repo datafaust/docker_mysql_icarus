@@ -14,9 +14,11 @@ FROM ubuntu:latest
 
 WORKDIR /usr/src/app
 
+#apt-get install -y build-essential -y  python python-dev python-pip python-virtualenv libmysqlclient-dev curl&& \
+
 RUN \
   apt-get update && \
-  apt-get install -y build-essential -y python python-dev python-pip python-virtualenv libmysqlclient-dev curl&& \
+  apt-get install -y build-essential -y  python3.6 libmysqlclient-dev curl&& \
   rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt ./
