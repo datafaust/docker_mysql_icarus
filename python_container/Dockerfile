@@ -13,7 +13,6 @@
 FROM ubuntu:latest
 
 WORKDIR /usr/src/app
-ADD . /monitor-updates
 
 RUN \
   apt-get update && \
