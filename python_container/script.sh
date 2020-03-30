@@ -1,1 +1,1 @@
-python loading_data.py >> /var/log/cron.log 2>&1
+python /usr/src/app/loading_data.py >> /var/log/cron.log 2>&1
