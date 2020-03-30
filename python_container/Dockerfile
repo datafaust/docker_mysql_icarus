@@ -1,16 +1,27 @@
 #python install----------
-FROM python:3.6 
-WORKDIR /usr/src/app
+#FROM python:3.6 
+#WORKDIR /usr/src/app
 
-COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
+#COPY requirements.txt ./
+#RUN pip install --no-cache-dir -r requirements.txt
 
-COPY . .
+#COPY . .
 
-CMD [ "python", "./loading_data.py" ]
+#CMD [ "python", "./loading_data.py" ]
 
 #cron install----------
 FROM ubuntu:latest
+
+WORKDIR /usr/src/app
+ADD . /monitor-updates
+
+RUN \
+  apt-get update && \
+  apt-get install -y python python-dev python-pip python-virtualenv libmysqlclient-dev curl&& \
+  rm -rf /var/lib/apt/lists/*
+
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Install cron
 RUN apt-get update
@@ -20,8 +31,10 @@ RUN apt-get install cron
 ADD crontab /etc/cron.d/simple-cron
 
 # Add shell script and grant execution rights
+ADD loading_data.py
 ADD script.sh /script.sh
 RUN chmod +x /script.sh
+RUN chmod +x loading_data.py
 
 # Give execution rights on the cron job
 RUN chmod 0644 /etc/cron.d/simple-cron
