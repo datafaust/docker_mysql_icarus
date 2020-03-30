@@ -1,4 +1,4 @@
-#geos>=3.3.3
-#cartopy
-#shapely
-#traffic
+geos
+cartopy
+shapely
+traffic
