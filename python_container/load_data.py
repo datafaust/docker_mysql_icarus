@@ -31,7 +31,7 @@ final_df=final_df.rename(columns = {'timestamp':'time_stamp'})
 
 try:
     upload(final_df, 'flights_stg')
-except:
-    print('ISSUE LOADING...')
+except Exception as error:
+        print('Caught this error: ' + repr(error))
 del(final_df)
 gc.collect()
