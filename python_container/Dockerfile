@@ -1,5 +1,4 @@
-#FROM python:3.6---
-
+#cron install----------
 FROM ubuntu:latest
 
 # Install cron
@@ -22,12 +21,13 @@ RUN touch /var/log/cron.log
 # Run the command on container startup
 CMD cron && tail -f /var/log/cron.log
 
-#continue python 
-#WORKDIR /usr/src/app---
+#python install----------
+FROM python:3.6 
+WORKDIR /usr/src/app
 
-#COPY requirements.txt ./---
-#RUN pip install --no-cache-dir -r requirements.txt---
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
 
-#COPY . .---
+COPY . .
 
-#CMD [ "python", "./hello.py" ]---
+CMD [ "python", "./hello.py" ]
