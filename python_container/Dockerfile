@@ -18,14 +18,14 @@ WORKDIR /usr/src/app
 
 RUN \
   apt-get update && \
-  apt-get install -y build-essential -y  python3.6 python-pip libproj-dev proj-data proj-bin libgeos++-dev libmysqlclient-dev curl&& \
+  apt-get install -y build-essential -y git -y  python3.6 python-pip libproj-dev proj-data proj-bin libgeos++-dev libmysqlclient-dev curl&& \
   rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt ./
 RUN pip install --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt
     
-RUN pip install --upgrade traffic
+RUN pip install git+https://github.com/xoolive/traffic
 
 COPY . .
 
