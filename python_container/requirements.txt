@@ -1,3 +1,4 @@
+Cython
 geos
 cartopy
 shapely
