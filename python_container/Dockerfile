@@ -18,11 +18,12 @@ WORKDIR /usr/src/app
 
 RUN \
   apt-get update && \
-  apt-get install -y build-essential -y  python3.6 python3-pip libmysqlclient-dev curl&& \
+  apt-get install -y build-essential -y  python3.6 libmysqlclient-dev curl&& \
   rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Install cron
