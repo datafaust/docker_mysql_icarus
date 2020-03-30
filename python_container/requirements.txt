@@ -1,4 +1,5 @@
 #Cython==0.26
+PyMySQL
 geos
 cartopy
 shapely
