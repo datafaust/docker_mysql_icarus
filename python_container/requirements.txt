@@ -1,5 +1,5 @@
 Cython==0.26
 geos
-shapely
 cartopy
+shapely
 traffic
