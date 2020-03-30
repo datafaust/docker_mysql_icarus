@@ -1,3 +1,4 @@
+print('i am running every minute...')
 from traffic.data import opensky
 from sqlalchemy import create_engine
 #from sqlalchemy_utils import database_exists, create_database
