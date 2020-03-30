@@ -1,3 +1,14 @@
+#python install----------
+FROM python:3.6 
+WORKDIR /usr/src/app
+
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+
+CMD [ "python", "./loading_data.py" ]
+
 #cron install----------
 FROM ubuntu:latest
 
@@ -20,14 +31,3 @@ RUN touch /var/log/cron.log
 
 # Run the command on container startup
 CMD cron && tail -f /var/log/cron.log
-
-#python install----------
-FROM python:3.6 
-WORKDIR /usr/src/app
-
-COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
-
-COPY . .
-
-CMD [ "python", "./loading_data.py" ]
