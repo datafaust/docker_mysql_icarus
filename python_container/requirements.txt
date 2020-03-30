@@ -2,3 +2,4 @@ Cython==0.26
 geos
 cartopy
 shapely
+sqlalchemy
