@@ -18,7 +18,7 @@ WORKDIR /usr/src/app
 
 RUN \
   apt-get update && \
-  apt-get install -y build-essential -y git -y  python3.6 python3-pip libproj-dev proj-data proj-bin libgeos++-dev libmysqlclient-dev curl&& \
+  apt-get install -y build-essential -y git -y  python3.6 python3-pip libproj-dev proj-data proj-bin libgeos++-dev libmysqlclient-dev python-mysqldb curl&& \
   rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt ./
