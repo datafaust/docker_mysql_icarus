@@ -3,8 +3,6 @@ from traffic.data import opensky
 from sqlalchemy import create_engine
 #from sqlalchemy_utils import database_exists, create_database
 import sqlalchemy
-import string
-import io
 import gc
 import sys
 
@@ -25,7 +23,7 @@ def upload(df,table_name):
 sv = opensky.api_states()
 final_df = sv.data
 #quick column clean up 
-#print(final_df.head())
+print(final_df.head())
 final_df=final_df.rename(columns = {'timestamp':'time_stamp'})
 
 
