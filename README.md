@@ -1,6 +1,8 @@
 # docker_mysql_icarus
 
-Project Icarus was built to track flight data from the OpenSky Network. Data is urrently logged every minute to track trajectories. A second python cron container is nested in this repo. Future build will be set via docker compose for a simpler setup. Future ClickHouse integration coming . . . 
+Project Icarus was built to track flight data from the OpenSky Network. Data is urrently logged every minute to track trajectories. A second python cron container is nested in this repo. Future build will be set via docker compose for a simpler setup. Future ClickHouse integration coming.
+
+General process information: 
 
 1. make sure you installed docker on your ubuntu machine
 2. clone the repo
@@ -17,7 +19,7 @@ Project Icarus was built to track flight data from the OpenSky Network. Data is 
     mysql:latest
 ```
 
-6. change directories `cd python_container` directory and create another docker service for python: 
+6. change directories `cd python_container` directory and repeat for python: 
 
 ```
   docker build -t docker-cron .
