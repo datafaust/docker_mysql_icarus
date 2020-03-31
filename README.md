@@ -7,7 +7,9 @@ Project Icarus was built to track flight data from the OpenSky Network. Data is 
 3. cd into repo
 4. build docker image `docker build -t mysql .`
 5. create a network bridge to link your containers `docker network create my-net`
-5. create a docker service for the mysql container `docker create --name mysql \
+5. create a docker service for the mysql container 
+
+`docker create --name mysql \
   --network my-net \
   --publish 3306:3306 \
   -e MYSQL_ROOT_PASSWORD=password \
