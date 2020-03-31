@@ -11,24 +11,26 @@ Project Icarus was built to track flight data from the OpenSky Network. Data is 
 
 ```
   docker create --name mysql \
-  --network my-net \
-  --publish 3306:3306 \
-  -e MYSQL_ROOT_PASSWORD=password \
-  mysql:latest
+    --network my-net \
+    --publish 3306:3306 \
+    -e MYSQL_ROOT_PASSWORD=password \
+    mysql:latest
 ```
 
 7. change directories `cd python_container` directory and create another docker service for python: 
 
-```docker create --name docker-cron \
-  --network my-net \
-  docker-cron:latest
+```
+  docker create --name docker-cron \
+    --network my-net \
+    docker-cron:latest
 ```
 
 8. run both containers: `docker start mysql` and `docker start docker-cron`
 9. check that your containers are running with `docker ps`
 10. double check the docker-cron logs by entering container 
 
-```docker exec -i -t yourContainerId /bin/bash
+```
+   docker exec -i -t yourContainerId /bin/bash
    root@b149b5e7306d:/# cat /var/log/cron.log 
     i am running every minute...
     SUCCESSFULLY LOADED DATA INTO STAGING...
