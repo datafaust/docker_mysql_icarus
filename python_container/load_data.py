@@ -7,7 +7,7 @@ import gc
 import sys
 
 #connection and host information
-host = 'localhost'
+host = 'mysql'
 db='icarus'
 engine = create_engine('mysql+pymysql://root:password@'+ host+ ':3306/'+ db) #create engine connection
 version= sys.version_info[0]
