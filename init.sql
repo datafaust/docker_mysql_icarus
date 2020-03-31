@@ -1,7 +1,7 @@
 CREATE DATABASE icarus;
 USE icarus;
 SET SQL_SAFE_UPDATES = 0;
-CREATE TABLE flights_stg(
+CREATE TABLE IF NOT EXISTS flights_stg(
      icao24 VARCHAR(100),               
      callsign VARCHAR(100),            
      last_position VARCHAR(100),               
@@ -15,10 +15,10 @@ CREATE TABLE flights_stg(
      vertical_rate VARCHAR(100),                  
      geoaltitude VARCHAR(100),                 
      squawk VARCHAR(100),                       
-     position_source VARCHAR(100)                
+     position_source VARCHAR(100)
      );
 
-CREATE TABLE flights_prd(
+CREATE TABLE IF NOT EXISTS flights_prd(
      unique_id VARCHAR(100) PRIMARY KEY,
      icao24 VARCHAR(100),               
      callsign VARCHAR(100),            

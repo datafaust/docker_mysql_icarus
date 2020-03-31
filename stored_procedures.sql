@@ -1,4 +1,4 @@
-
+USE icarus;
 -- inserts data from staging to production
 DROP PROCEDURE IF EXISTS icarus.insertPrdData;
 DELIMITER $$
@@ -12,7 +12,7 @@ CREATE PROCEDURE icarus.insertPrdData()
     -- Declare exception handler for failed insert
     -- DECLARE CONTINUE HANDLER FOR SQLEXCEPTION 
     
-    
+ 
 INSERT IGNORE INTO flights_prd
 SELECT
 CONCAT(icao24,REPLACE(REPLACE(REPLACE(time_stamp,'-',''),' ',''),':','')) AS unique_id,
@@ -45,6 +45,7 @@ DROP PROCEDURE IF EXISTS icarus.deleteStgData;
 DELIMITER $$
 CREATE PROCEDURE deleteStgData()
 BEGIN
+    SET SQL_SAFE_UPDATES = 0;
 	DELETE FROM flights_stg;
 END$$
 DELIMITER ;
